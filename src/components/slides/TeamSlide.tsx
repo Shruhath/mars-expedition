@@ -1,0 +1,78 @@
+import { Rocket, Star, Globe, Satellite, Telescope, Orbit } from 'lucide-react';
+
+const teamMembers = [
+  { id: 'CB.SC.U4CSE24111', name: 'Samith', icon: Rocket },
+  { id: 'CB.SC.U4CSE24114', name: 'Prudhvi', icon: Star },
+  { id: 'CB.SC.U4CSE24116', name: 'Dhaurshand', icon: Globe },
+  { id: 'CB.SC.U4CSE24123', name: 'Hasini', icon: Satellite },
+  { id: 'CB.SC.U4CSE24124', name: 'Shruhath', icon: Telescope },
+  { id: 'CB.SC.U4CSE24135', name: 'Likhith', icon: Orbit },
+];
+
+interface TeamSlideProps {
+  isActive: boolean;
+}
+
+const TeamSlide = ({ isActive }: TeamSlideProps) => {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative">
+      {/* Slide Content */}
+      <div className="max-w-6xl w-full mx-auto text-center z-10">
+        <h1 
+          className={`text-5xl md:text-7xl font-heading font-bold text-primary neon-text mb-4 ${
+            isActive ? 'animate-slide-up' : 'opacity-0'
+          }`}
+        >
+          Team Members
+        </h1>
+        <p 
+          className={`text-xl md:text-2xl text-muted-foreground font-body mb-16 ${
+            isActive ? 'animate-slide-up-delayed' : 'opacity-0'
+          }`}
+        >
+          Creators of the Journey
+        </p>
+
+        {/* Team Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {teamMembers.map((member, index) => {
+            const Icon = member.icon;
+            return (
+              <div
+                key={member.id}
+                className={`team-card group ${
+                  isActive ? 'animate-scale-in' : 'opacity-0'
+                }`}
+                style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+              >
+                {/* Icon */}
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:animate-pulse-glow transition-all duration-500">
+                  <Icon className="w-8 h-8 text-primary" />
+                </div>
+
+                {/* Name */}
+                <h3 className="text-2xl font-heading font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {member.name}
+                </h3>
+
+                {/* Student ID */}
+                <p className="text-sm text-muted-foreground font-mono tracking-wider">
+                  {member.id}
+                </p>
+
+                {/* Decorative Line */}
+                <div className="mt-4 h-px w-16 mx-auto bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 group-hover:opacity-100 group-hover:w-32 transition-all duration-500" />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Decorative Elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-primary/5 blur-3xl animate-float" />
+      <div className="absolute bottom-40 right-10 w-48 h-48 rounded-full bg-accent/5 blur-3xl animate-float-slow" />
+    </div>
+  );
+};
+
+export default TeamSlide;
