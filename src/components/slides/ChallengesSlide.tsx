@@ -70,7 +70,7 @@ const challenges = [
 
 const ChallengesSlide = ({ isActive }: ChallengesSlideProps) => {
   return (
-    <div className="h-screen w-full overflow-hidden flex flex-col justify-center px-4 md:px-6 py-4 relative">
+    <div className="h-screen w-full overflow-hidden flex flex-col justify-center px-4 md:px-6 pt-4 pb-24 md:pb-32 relative">
       <div className="max-w-[1400px] w-full mx-auto z-10 flex flex-col h-full max-h-[900px]">
         {/* Header - Compact */}
         <div className="text-center mb-4 md:mb-6 shrink-0">
@@ -102,8 +102,8 @@ const ChallengesSlide = ({ isActive }: ChallengesSlideProps) => {
                 >
                   <div className={`challenge-icon mb-2 group-hover:animate-pulse-glow`}>
                     <Icon className={`w-5 h-5 md:w-6 md:h-6 ${challenge.color === 'primary' ? 'text-primary' :
-                        challenge.color === 'secondary' ? 'text-secondary' :
-                          'text-accent'
+                      challenge.color === 'secondary' ? 'text-secondary' :
+                        'text-accent'
                       }`} />
                   </div>
                   <h3 className="text-sm md:text-base font-heading font-semibold text-foreground mb-1 md:mb-2">
