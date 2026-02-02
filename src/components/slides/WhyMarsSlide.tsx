@@ -20,62 +20,60 @@ const reasons = [
 
 const WhyMarsSlide = ({ isActive }: WhyMarsSlideProps) => {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-20 relative">
-      <div className="max-w-7xl w-full mx-auto z-10">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 
-            className={`text-5xl md:text-7xl font-heading font-bold text-secondary neon-text-orange mb-4 ${
-              isActive ? 'animate-slide-up' : 'opacity-0'
-            }`}
+    <div className="h-screen w-full overflow-hidden flex flex-col justify-center px-6 pt-4 pb-24 md:pb-32 relative">
+      <div className="max-w-7xl w-full mx-auto z-10 flex flex-col h-full max-h-[900px]">
+        {/* Header - Compact */}
+        <div className="text-center mb-6 shrink-0">
+          <h1
+            className={`text-3xl md:text-5xl font-heading font-bold text-secondary neon-text-orange mb-2 ${isActive ? 'animate-slide-up' : 'opacity-0'
+              }`}
           >
             Why Mars?
           </h1>
-          <p 
-            className={`text-xl text-muted-foreground font-body max-w-2xl mx-auto ${
-              isActive ? 'animate-slide-up-delayed' : 'opacity-0'
-            }`}
+          <p
+            className={`text-base md:text-lg text-muted-foreground font-body max-w-2xl mx-auto ${isActive ? 'animate-slide-up-delayed' : 'opacity-0'
+              }`}
           >
             Understanding why the Red Planet is humanity's next frontier
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center flex-1 min-h-0">
           {/* Left: Mars Image with Comparison */}
-          <div 
-            className={`relative ${isActive ? 'animate-scale-in' : 'opacity-0'}`}
+          <div
+            className={`relative h-full flex flex-col justify-center ${isActive ? 'animate-scale-in' : 'opacity-0'}`}
             style={{ animationDelay: '0.2s' }}
           >
-            <div className="relative rounded-2xl overflow-hidden glass-panel p-4">
-              <img 
-                src={marsLandscape} 
-                alt="Mars Surface" 
-                className="w-full h-64 md:h-80 object-cover rounded-xl"
+            <div className="relative rounded-2xl overflow-hidden glass-panel p-3">
+              <img
+                src={marsLandscape}
+                alt="Mars Surface"
+                className="w-full h-48 md:h-64 lg:h-80 object-cover rounded-xl"
               />
-              
+
               {/* Floating Stats */}
-              <div className="absolute -right-4 -bottom-4 glass-card p-4 animate-float">
-                <div className="text-xs text-muted-foreground mb-1">Distance from Sun</div>
-                <div className="text-lg font-heading text-primary">227.9M km</div>
+              <div className="absolute -right-4 -bottom-4 glass-card p-3 animate-float">
+                <div className="text-[10px] text-muted-foreground mb-1">Distance from Sun</div>
+                <div className="text-base font-heading text-primary">227.9M km</div>
               </div>
             </div>
 
             {/* Earth vs Mars Comparison */}
-            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
               {facts.map((fact, index) => {
                 const Icon = fact.icon;
                 return (
-                  <div 
+                  <div
                     key={fact.label}
-                    className={`glass-card text-center ${isActive ? 'animate-fade-in-up opacity-0' : 'opacity-0'}`}
+                    className={`glass-card p-3 text-center ${isActive ? 'animate-fade-in-up opacity-0' : 'opacity-0'}`}
                     style={{ animationDelay: `${0.4 + index * 0.1}s` }}
                   >
-                    <Icon className="w-5 h-5 text-primary mx-auto mb-2" />
-                    <div className="text-xs text-muted-foreground mb-2">{fact.label}</div>
-                    <div className="text-xs">
+                    <Icon className="w-4 h-4 text-primary mx-auto mb-1.5" />
+                    <div className="text-[10px] text-muted-foreground mb-1">{fact.label}</div>
+                    <div className="text-[10px]">
                       <span className="text-space-blue">🌍 {fact.earth}</span>
                     </div>
-                    <div className="text-xs mt-1">
+                    <div className="text-[10px] mt-0.5">
                       <span className="text-secondary">🔴 {fact.mars}</span>
                     </div>
                   </div>
@@ -85,25 +83,24 @@ const WhyMarsSlide = ({ isActive }: WhyMarsSlideProps) => {
           </div>
 
           {/* Right: Reasons */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {reasons.map((reason, index) => {
               const Icon = reason.icon;
               return (
                 <div
                   key={reason.title}
-                  className={`glass-card flex items-start gap-4 group hover:border-secondary/50 transition-all duration-300 ${
-                    isActive ? 'animate-slide-left opacity-0' : 'opacity-0'
-                  }`}
+                  className={`glass-card p-4 flex items-start gap-4 group hover:border-secondary/50 transition-all duration-300 ${isActive ? 'animate-slide-left opacity-0' : 'opacity-0'
+                    }`}
                   style={{ animationDelay: `${0.3 + index * 0.15}s` }}
                 >
-                  <div className="challenge-icon shrink-0 group-hover:scale-110 transition-transform">
-                    <Icon className="w-8 h-8 text-secondary" />
+                  <div className="challenge-icon w-10 h-10 shrink-0 group-hover:scale-110 transition-transform">
+                    <Icon className="w-5 h-5 text-secondary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-heading font-semibold text-foreground mb-2 group-hover:text-secondary transition-colors">
+                    <h3 className="text-base md:text-lg font-heading font-semibold text-foreground mb-1 group-hover:text-secondary transition-colors">
                       {reason.title}
                     </h3>
-                    <p className="text-muted-foreground font-body">
+                    <p className="text-xs md:text-sm text-muted-foreground font-body">
                       {reason.desc}
                     </p>
                   </div>
@@ -112,22 +109,22 @@ const WhyMarsSlide = ({ isActive }: WhyMarsSlideProps) => {
             })}
 
             {/* Additional Points */}
-            <div 
-              className={`glass-panel p-6 ${isActive ? 'animate-fade-in-up opacity-0' : 'opacity-0'}`}
+            <div
+              className={`glass-panel p-4 ${isActive ? 'animate-fade-in-up opacity-0' : 'opacity-0'}`}
               style={{ animationDelay: '0.8s' }}
             >
-              <h4 className="text-lg font-heading text-primary mb-4">Key Scientific Interest</h4>
-              <ul className="space-y-2 text-muted-foreground font-body">
+              <h4 className="text-sm md:text-base font-heading text-primary mb-2">Key Scientific Interest</h4>
+              <ul className="space-y-1.5 text-muted-foreground font-body text-xs md:text-sm">
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                   Evidence of ancient water flows
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                   Potential for past microbial life
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-primary" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                   Resources for future colonies
                 </li>
               </ul>
@@ -137,7 +134,7 @@ const WhyMarsSlide = ({ isActive }: WhyMarsSlideProps) => {
       </div>
 
       {/* Decorative Orbit */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-secondary/5 rounded-full pointer-events-none" />
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-secondary/5 rounded-full pointer-events-none" />
     </div>
   );
 };
