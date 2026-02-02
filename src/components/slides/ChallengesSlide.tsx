@@ -70,48 +70,48 @@ const challenges = [
 
 const ChallengesSlide = ({ isActive }: ChallengesSlideProps) => {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6 py-20 relative">
-      <div className="max-w-7xl w-full mx-auto z-10">
-        {/* Header */}
-        <div className="text-center mb-12">
+    <div className="h-screen w-full overflow-hidden flex flex-col justify-center px-4 md:px-6 py-4 relative">
+      <div className="max-w-[1400px] w-full mx-auto z-10 flex flex-col h-full max-h-[900px]">
+        {/* Header - Compact */}
+        <div className="text-center mb-4 md:mb-6 shrink-0">
           <h1
-            className={`text-5xl md:text-7xl font-heading font-bold text-accent neon-text-magenta mb-4 ${isActive ? 'animate-slide-up' : 'opacity-0'
+            className={`text-3xl md:text-5xl font-heading font-bold text-accent neon-text-magenta mb-2 ${isActive ? 'animate-slide-up' : 'opacity-0'
               }`}
           >
             Challenges
           </h1>
           <p
-            className={`text-xl text-muted-foreground font-body max-w-2xl mx-auto ${isActive ? 'animate-slide-up-delayed' : 'opacity-0'
+            className={`text-base md:text-lg text-muted-foreground font-body max-w-2xl mx-auto ${isActive ? 'animate-slide-up-delayed' : 'opacity-0'
               }`}
           >
             The journey to Mars presents unprecedented challenges for humanity
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-start">
-          {/* Left Column: Challenges */}
-          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-4">
+        <div className="grid lg:grid-cols-12 gap-4 md:gap-6 items-center flex-1 min-h-0">
+          {/* Left Column: Challenges - 3x2 Grid */}
+          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 h-full content-center">
             {challenges.map((challenge, index) => {
               const Icon = challenge.icon;
               return (
                 <div
                   key={challenge.title}
-                  className={`glass-card group hover:scale-[1.02] transition-all duration-300 ${isActive ? 'animate-fade-in-up opacity-0' : 'opacity-0'
+                  className={`glass-card p-3 md:p-4 group hover:scale-[1.02] transition-all duration-300 flex flex-col justify-center ${isActive ? 'animate-fade-in-up opacity-0' : 'opacity-0'
                     }`}
                   style={{ animationDelay: `${0.1 + index * 0.1}s` }}
                 >
-                  <div className={`challenge-icon mb-4 group-hover:animate-pulse-glow`}>
-                    <Icon className={`w-7 h-7 ${challenge.color === 'primary' ? 'text-primary' :
+                  <div className={`challenge-icon mb-2 group-hover:animate-pulse-glow`}>
+                    <Icon className={`w-5 h-5 md:w-6 md:h-6 ${challenge.color === 'primary' ? 'text-primary' :
                         challenge.color === 'secondary' ? 'text-secondary' :
                           'text-accent'
                       }`} />
                   </div>
-                  <h3 className="text-lg font-heading font-semibold text-foreground mb-2">
+                  <h3 className="text-sm md:text-base font-heading font-semibold text-foreground mb-1 md:mb-2">
                     {challenge.title}
                   </h3>
-                  <ul className="text-left text-sm text-muted-foreground font-body list-disc pl-4 space-y-1">
+                  <ul className="text-left text-xs text-muted-foreground font-body list-disc pl-4 space-y-0.5">
                     {challenge.points.map((point, idx) => (
-                      <li key={idx}>{point}</li>
+                      <li key={idx} className="leading-tight">{point}</li>
                     ))}
                   </ul>
                 </div>
@@ -121,35 +121,35 @@ const ChallengesSlide = ({ isActive }: ChallengesSlideProps) => {
 
           {/* Right Column: Capsule Image */}
           <div
-            className={`relative ${isActive ? 'animate-scale-in opacity-0' : 'opacity-0'}`}
+            className={`lg:col-span-4 relative h-full max-h-[500px] flex flex-col justify-center ${isActive ? 'animate-scale-in opacity-0' : 'opacity-0'}`}
             style={{ animationDelay: '0.4s' }}
           >
-            <div className="glass-panel p-3 rounded-2xl">
+            <div className="glass-panel p-2 md:p-3 rounded-2xl h-full">
               <img
                 src={spaceCapsule}
                 alt="Space Capsule Interior"
-                className="w-full h-80 lg:h-[450px] object-cover rounded-xl"
+                className="w-full h-full object-cover rounded-xl"
               />
 
               {/* Vibration effect overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent rounded-xl pointer-events-none" />
 
               {/* Stats overlay */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="glass-card p-4 backdrop-blur-xl">
-                  <div className="flex items-center justify-between text-sm">
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="glass-card p-3 backdrop-blur-xl">
+                  <div className="flex items-center justify-between text-xs">
                     <div>
-                      <span className="text-muted-foreground">Distance</span>
+                      <span className="text-muted-foreground block text-[10px] uppercase">Distance</span>
                       <p className="text-primary font-heading font-bold">225M km</p>
                     </div>
-                    <div className="h-8 w-px bg-border" />
+                    <div className="h-6 w-px bg-border" />
                     <div>
-                      <span className="text-muted-foreground">Duration</span>
-                      <p className="text-secondary font-heading font-bold">7 months</p>
+                      <span className="text-muted-foreground block text-[10px] uppercase">Duration</span>
+                      <p className="text-secondary font-heading font-bold">7 mo</p>
                     </div>
-                    <div className="h-8 w-px bg-border" />
+                    <div className="h-6 w-px bg-border" />
                     <div>
-                      <span className="text-muted-foreground">Speed</span>
+                      <span className="text-muted-foreground block text-[10px] uppercase">Speed</span>
                       <p className="text-accent font-heading font-bold">24km/s</p>
                     </div>
                   </div>
@@ -158,31 +158,31 @@ const ChallengesSlide = ({ isActive }: ChallengesSlideProps) => {
             </div>
 
             {/* Warning indicator */}
-            <div className="absolute -top-3 -right-3 w-6 h-6 bg-secondary rounded-full animate-pulse flex items-center justify-center">
-              <span className="text-xs">!</span>
+            <div className="absolute -top-2 -right-2 w-5 h-5 bg-secondary rounded-full animate-pulse flex items-center justify-center">
+              <span className="text-[10px]">!</span>
             </div>
           </div>
         </div>
 
-        {/* Bottom Stats Bar */}
+        {/* Bottom Stats Bar - Compact */}
         <div
-          className={`mt-12 glass-panel p-6 ${isActive ? 'animate-fade-in-up opacity-0' : 'opacity-0'}`}
+          className={`mt-4 md:mt-6 glass-panel p-3 md:p-4 shrink-0 ${isActive ? 'animate-fade-in-up opacity-0' : 'opacity-0'}`}
           style={{ animationDelay: '0.7s' }}
         >
-          <div className="flex flex-wrap items-center justify-center gap-8 text-center">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8 text-center">
             <div>
-              <p className="text-3xl font-heading font-bold text-primary">480</p>
-              <p className="text-sm text-muted-foreground">Days minimum mission</p>
+              <p className="text-xl md:text-2xl font-heading font-bold text-primary">480</p>
+              <p className="text-xs text-muted-foreground">Days minimum mission</p>
             </div>
-            <div className="h-12 w-px bg-border hidden md:block" />
+            <div className="h-8 w-px bg-border hidden md:block" />
             <div>
-              <p className="text-3xl font-heading font-bold text-secondary">300+</p>
-              <p className="text-sm text-muted-foreground">mSv radiation exposure</p>
+              <p className="text-xl md:text-2xl font-heading font-bold text-secondary">300+</p>
+              <p className="text-xs text-muted-foreground">mSv radiation exposure</p>
             </div>
-            <div className="h-12 w-px bg-border hidden md:block" />
+            <div className="h-8 w-px bg-border hidden md:block" />
             <div>
-              <p className="text-3xl font-heading font-bold text-accent">22</p>
-              <p className="text-sm text-muted-foreground">Minutes avg signal delay</p>
+              <p className="text-xl md:text-2xl font-heading font-bold text-accent">22</p>
+              <p className="text-xs text-muted-foreground">Minutes avg signal delay</p>
             </div>
           </div>
         </div>
