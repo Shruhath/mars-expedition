@@ -9,38 +9,38 @@ const robots = [
   {
     icon: Eye,
     title: 'Exploration Rovers',
-    desc: 'Mapping terrain and analyzing soil samples',
+    desc: 'Traverses rocky terrain to collect samples and send data without risk',
     status: 'Active on Mars'
   },
   {
     icon: Wrench,
     title: 'Construction Bots',
-    desc: 'Autonomous builders for habitats and infrastructure',
+    desc: 'Smart systems developed to build infrastructure faster and safer',
     status: 'In Development'
   },
   {
     icon: Cpu,
     title: 'AI Mission Control',
-    desc: 'Real-time decision making without Earth delay',
+    desc: 'Adapts to unknown situations and makes autonomous decisions',
     status: 'Testing Phase'
   },
   {
     icon: Heart,
     title: 'Medical AI',
-    desc: 'Health monitoring and emergency response',
+    desc: 'Advanced support systems transforming healthcare in extreme environments',
     status: 'Prototype'
   },
   {
     icon: Plane,
     title: 'Drone Scouts',
-    desc: 'Aerial reconnaissance like Ingenuity',
+    desc: 'Reaches inaccessible places, opening new possibilities for science',
     status: 'Proven Technology'
   },
   {
     icon: Bot,
-    title: 'Companion Robots',
-    desc: 'Psychological support and task assistance',
-    status: 'Conceptual'
+    title: 'Human-AI Collaboration',
+    desc: 'Extends human abilities, acting as powerful tools for the future',
+    status: 'The Future'
   },
 ];
 
@@ -133,8 +133,8 @@ const RobotsSlide = ({ isActive }: RobotsSlideProps) => {
                         {robot.title}
                       </h3>
                       <span className={`text-[10px] md:text-xs px-1.5 py-0.5 rounded-full ${robot.status === 'Active on Mars' ? 'bg-green-500/20 text-green-400' :
-                          robot.status === 'Proven Technology' ? 'bg-primary/20 text-primary' :
-                            'bg-muted text-muted-foreground'
+                        robot.status === 'Proven Technology' ? 'bg-primary/20 text-primary' :
+                          'bg-muted text-muted-foreground'
                         }`}>
                         {robot.status}
                       </span>
