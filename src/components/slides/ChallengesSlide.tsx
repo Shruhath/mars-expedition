@@ -1,4 +1,4 @@
-import { Clock, Radiation, Activity, Wifi, Brain, Shield } from 'lucide-react';
+import { Clock, Radiation, Activity, Wifi } from 'lucide-react';
 import spaceCapsule from '@/assets/space-capsule.jpg';
 
 interface ChallengesSlideProps {
@@ -46,26 +46,7 @@ const challenges = [
     ],
     color: 'primary'
   },
-  {
-    icon: Brain,
-    title: 'Psychological Stress',
-    points: [
-      'Long isolation and confinement can lead to anxiety, depression, and loneliness',
-      'Limited social interaction affects team dynamics and decision-making',
-      'Continuous mental health support is needed to maintain focus and morale'
-    ],
-    color: 'secondary'
-  },
-  {
-    icon: Shield,
-    title: 'Life Support Systems',
-    points: [
-      'Must provide oxygen, water, food, and waste management for months or years',
-      'Systems need to be highly reliable with minimal failure risk',
-      'Recycling air and water is essential to reduce supply dependency'
-    ],
-    color: 'accent'
-  },
+
 ];
 
 const ChallengesSlide = ({ isActive }: ChallengesSlideProps) => {
